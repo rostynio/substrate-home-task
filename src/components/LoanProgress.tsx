@@ -1,3 +1,4 @@
+import { Card } from '@/components/ui/card'
 import { formatMoney, formatRate } from '../utils/format'
 
 const Ring = ({
@@ -22,32 +23,35 @@ const Ring = ({
   const gradientId = `ring-${id}`
 
   return (
-    <figure className="ring">
-      <svg viewBox="0 0 140 140" role="img" aria-label={`${title}: ${paidLine}, ${leftLine}`}>
+    <figure className="m-0 grid justify-items-center text-center">
+      <svg className="size-[168px]" viewBox="0 0 140 140" role="img" aria-label={`${title}: ${paidLine}, ${leftLine}`}>
         <defs>
           <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
             <stop offset="0" stopColor="#3dbe6e" />
             <stop offset="1" stopColor="#146b38" />
           </linearGradient>
         </defs>
-        <circle className="ring-disc" cx="70" cy="70" r="40" />
-        <circle className="ring-track" cx="70" cy="70" r={radius} />
+        <circle fill="#f4faf6" cx="70" cy="70" r="40" />
+        <circle fill="none" stroke="#e7eee9" strokeWidth="12" cx="70" cy="70" r={radius} />
         <circle
-          className="ring-arc"
+          className="origin-[70px_70px] -rotate-90"
+          fill="none"
+          stroke={`url(#${gradientId})`}
+          strokeWidth="12"
+          strokeLinecap="round"
           cx="70"
           cy="70"
           r={radius}
-          stroke={`url(#${gradientId})`}
           strokeDasharray={`${drawn} ${circumference - drawn}`}
         />
-        <text className="ring-center" x="70" y="76">
+        <text className="fill-foreground text-[22px] font-semibold" x="70" y="76" textAnchor="middle">
           {center}
         </text>
       </svg>
-      <figcaption>
-        <strong>{title}</strong>
-        <span>{paidLine}</span>
-        <span className="muted">{leftLine}</span>
+      <figcaption className="grid gap-0.5">
+        <strong className="text-sm">{title}</strong>
+        <span className="text-[13px]">{paidLine}</span>
+        <span className="text-[13px] text-muted-foreground">{leftLine}</span>
       </figcaption>
     </figure>
   )
@@ -79,28 +83,32 @@ export const LoanProgress = ({
   const caption = detail ?? `${formatRate(rateBps ?? 0)} · ${termMonths ?? 0} months`
 
   return (
-    <section className="card rings" aria-label="Loan progress">
-      <div className="loan-amount">
-        <span>Loan amount</span>
-        <strong>{formatMoney(originalCents)}</strong>
-        <span className="muted">{caption}</span>
-      </div>
-      <Ring
-        portion={principalTotal === 0 ? 0 : principalPaidCents / principalTotal}
-        center={`${Math.round((principalTotal === 0 ? 0 : principalPaidCents / principalTotal) * 100)}%`}
-        id={`${id}-principal`}
-        title="Principal"
-        paidLine={`${formatMoney(principalPaidCents)} paid`}
-        leftLine={`${formatMoney(principalLeftCents)} left`}
-      />
-      <Ring
-        portion={paymentTotal === 0 ? 0 : paymentsPosted / paymentTotal}
-        center={`${paymentsPosted}/${paymentTotal}`}
-        id={`${id}-payments`}
-        title="Payments"
-        paidLine={`${paymentsPosted} paid`}
-        leftLine={`${paymentsLeft} left`}
-      />
-    </section>
+    <Card asChild className="mt-[18px]">
+      <section aria-label="Loan progress">
+        <div className="grid grid-cols-2 gap-x-3 gap-y-1">
+          <div className="col-span-full mb-1 grid gap-0.5">
+            <span className="text-[13px] text-muted-foreground">Loan amount</span>
+            <strong className="text-[28px] font-semibold tracking-tight">{formatMoney(originalCents)}</strong>
+            <span className="text-muted-foreground">{caption}</span>
+          </div>
+          <Ring
+            portion={principalTotal === 0 ? 0 : principalPaidCents / principalTotal}
+            center={`${Math.round((principalTotal === 0 ? 0 : principalPaidCents / principalTotal) * 100)}%`}
+            id={`${id}-principal`}
+            title="Principal"
+            paidLine={`${formatMoney(principalPaidCents)} paid`}
+            leftLine={`${formatMoney(principalLeftCents)} left`}
+          />
+          <Ring
+            portion={paymentTotal === 0 ? 0 : paymentsPosted / paymentTotal}
+            center={`${paymentsPosted}/${paymentTotal}`}
+            id={`${id}-payments`}
+            title="Payments"
+            paidLine={`${paymentsPosted} paid`}
+            leftLine={`${paymentsLeft} left`}
+          />
+        </div>
+      </section>
+    </Card>
   )
 }

@@ -60,7 +60,7 @@ The reference frames in [Product Engineer Work Trial](https://www.figma.com/desi
 
 ## Implementation Decisions
 
-- Frontend only. Applications and this Buyer's funded loans are fixtures. No auth, no API. No new tested seam. Layout, sidebar, and the progress rings are checked in the browser.
+- Frontend only. Applications and this Buyer's funded loans are fixtures. No auth, no API. Loan math stays the tested seam. Buyer paths through the screens are the browser seam, in `.scratch/screen-language/spec.md`.
 - Screen modules are arrow functions. Money, dates, and the book summary live beside the domain. Standing, a fact row, an installment list, an application status, a stat, and the action link are shared screen pieces. The book summary only adds figures the loan snapshot already returned. It is not a second tested seam.
 - The agreed seam is one module, `projectLoan`. Callers pass the loan, the portal date, and an optional payoff date. They get outstanding principal, interest paid through, upcoming debits (a returned debit that is still owed is first, with `stillDue`), history, and the payoff quote. Tests and the loan page both call this. It catches wrong principal, a return that incorrectly reduces principal, and a quote that ignores the date. It does not catch layout.
 - Money is integer cents. A posted installment pays accrued interest first; the remainder reduces principal. Accrued interest is `round(principalCents × annualRateBps × actualDays / 3_600_000)`. Days are actual days from interest-paid-through to the event date. The divisor is a 360-day year (`360 × 10_000`).
@@ -69,7 +69,7 @@ The reference frames in [Product Engineer Work Trial](https://www.figma.com/desi
 - The portal date is fixed at 2026-10-27 so the demo does not drift. The payoff control changes only the quote date.
 - This Buyer is Dane Excavation LLC. Three funded loans: 2022 Bobcat T76, $89,500 at 8.90% for 60 months, installment $1,864.00, posted through 2026-10-15, Autopay checking ending 4821; 2021 CAT 259D, $124,500 at 7.90% for 48 months, installment $3,050.00, 36 posted debits from 2023-11-15, checking ending 2290; 2024 Takeuchi TB240, $42,800 at 9.90% for 36 months, installment $1,480.00, four posted debits from 2026-07-20, checking ending 7742. The returned-debit rule is covered by the loan tests, not by these fixtures.
 - The Kubota and John Deere rows are applications only. "See app" opens their status sentence. "See actions required" opens the Kubota row. "Start new application" stays on the list as in the reference; origination is not this spec.
-- Visual language follows the Mellon frames: centered SUBSTRATE wordmark, white page, hairline cards, gray and green pills, support card with Abby Sweeney, email `support@joinsubstrate.com`, phone `(276) 465-7864`, dark footer. The loan support heading says the question is about the loan.
+- Visual language follows the Mellon frames and is drawn with Tailwind and shadcn. See ADR-0003. Centered SUBSTRATE wordmark, white page, hairline cards, gray and green pills, support card with Abby Sweeney, email `support@joinsubstrate.com`, phone `(276) 465-7864`, dark footer. The loan support heading says the question is about the loan.
 
 ## Testing Decisions
 

@@ -17,18 +17,19 @@ Open the printed local URL.
 
 ```bash
 npm test
+npm run test:e2e
 npm run build
 ```
 
-`npm test` runs the loan math. `npm run build` typechecks, then builds.
+`npm test` runs the loan math. `npm run test:e2e` runs the buyer paths in a browser. `npm run build` typechecks, then builds.
 
 The demo is one buyer, Dane Excavation LLC, with three funded loans. The portal date is fixed at 2026-10-27. The sidebar is Dashboard, Active loans, and My applications. **View loan** on a funded row opens that loan.
 
 ## Stack
 
-Vite, React 19, TypeScript, and React Router 7. Tests are Vitest. There is no UI kit and no backend. Applications and this buyer's loans are fixtures. Money is integer cents. Dates are `YYYY-MM-DD`.
+Vite, React 19, TypeScript, React Router 7, Tailwind, and shadcn. There is no backend. Applications and this buyer's loans are fixtures. Money is integer cents. Dates are `YYYY-MM-DD`.
 
-The only tested module is `src/domain/projectLoan.ts`. It turns a loan, the portal date, and an optional payoff date into the balance, the schedule, the history, and the payoff quote. The screens are checked in the browser.
+`npm test` runs the loan math in Vitest. `npm run test:e2e` runs the buyer paths in Playwright. The loan math is `src/domain/projectLoan.ts`: a loan, the portal date, and an optional payoff date become the balance, the schedule, the history, and the payoff quote. See [ADR-0003](docs/adr/0003-screens-use-tailwind-and-shadcn.md).
 
 ## Decisions
 

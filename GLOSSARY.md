@@ -5,8 +5,8 @@ Language for the loan a buyer sees in Mellon after Substrate has funded it.
 ## Language
 
 **Mellon**:
-One Buyer's portal. It lists that Buyer's applications and opens a Loan from a funded one. It does not show Substrate's book of loans.
-_Avoid_: dashboard, app, portal, portfolio
+One Buyer's portal. It lists that Buyer's applications and the loans Substrate has funded for them. The sidebar is Dashboard, Active loans, and My applications.
+_Avoid_: app, portfolio
 
 **Application**:
 A request for equipment financing before Substrate funds it.

@@ -1,3 +1,5 @@
+import { Badge } from '@/components/ui/badge'
+
 export const StandingPill = ({ returned }: { returned: boolean }) => (
-  <span className={`pill ${returned ? 'pill-returned' : 'pill-funded'}`}>{returned ? 'Returned' : 'Current'}</span>
+  <Badge variant={returned ? 'returned' : 'current'}>{returned ? 'Returned' : 'Current'}</Badge>
 )
