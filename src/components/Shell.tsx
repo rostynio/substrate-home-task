@@ -21,9 +21,9 @@ const buyerPortrait =
 
 export const Shell = ({ topic, children }: { topic: SupportTopic; children: ReactNode }) => {
   return (
-    <div className="flex h-screen w-full flex-col overflow-hidden">
-      <div className="grid min-h-0 w-full flex-1 grid-cols-[240px_minmax(0,1fr)] lg:grid-cols-[280px_minmax(0,1fr)]">
-        <aside className="flex min-h-0 min-w-0 flex-col gap-[18px] overflow-auto border-r border-border bg-background px-3 pt-5 pb-4">
+    <div className="flex min-h-svh w-full flex-col">
+      <div className="grid w-full flex-1 grid-cols-[240px_minmax(0,1fr)] lg:grid-cols-[280px_minmax(0,1fr)]">
+        <aside className="sticky top-0 flex h-svh flex-col gap-[18px] self-start overflow-auto border-r border-border bg-background px-3 pt-5 pb-4">
           <div className="flex items-center gap-2.5 px-2">
             <span
               className="size-9 shrink-0 rounded-full bg-[#e7e3dc] bg-cover"
@@ -67,17 +67,17 @@ export const Shell = ({ topic, children }: { topic: SupportTopic; children: Reac
             </Button>
           </div>
         </aside>
-        <div className="flex min-h-0 min-w-0 flex-col overflow-hidden">
-          <header className="flex h-16 shrink-0 items-center justify-center gap-2 border-b border-border bg-background text-xs font-semibold tracking-[0.16em] uppercase">
+        <div className="flex min-w-0 flex-col">
+          <header className="sticky top-0 z-10 flex h-16 shrink-0 items-center justify-center gap-2 border-b border-border bg-background text-xs font-semibold tracking-[0.16em] uppercase">
             <Mark />
             <span>Substrate</span>
           </header>
-          <main className="min-h-0 w-full flex-1 overflow-auto px-7 pt-7 pb-12 max-md:px-4 max-md:pt-5">
+          <main className="w-full flex-1 px-7 pt-7 pb-12 max-md:px-4 max-md:pt-5">
             {children}
           </main>
         </div>
       </div>
-      <footer className="flex w-full shrink-0 items-center justify-between gap-4 bg-[#171717] px-7 py-4 text-xs tracking-wide text-[#d5d5d5] max-md:grid">
+      <footer className="flex w-full items-center justify-between gap-4 bg-[#171717] px-7 py-4 text-xs tracking-wide text-[#d5d5d5] max-md:grid">
         <span>Powered by Substrate</span>
         <span className="flex gap-4 max-md:mt-2">
           <a className="text-[#d5d5d5] no-underline" href="tel:2764657864">
