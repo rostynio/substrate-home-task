@@ -7,7 +7,9 @@ Sources:
 - The take-home, [Product Engineer Take-Home](https://substrate-industries.notion.site/Product-Engineer-Take-Home-3e48d8996bf5801ab651c230d5969b5a). Part 2 only. Part 1 is personal and is not in this repo.
 - The Mellon frames in [Product Engineer Work Trial](https://www.figma.com/design/n9xGkRb55WCRaRCGEBKht4/Product-Engineer-Work-Trial?node-id=0-1). They show the application list (a "NO STIPS" frame and an action-required frame). They do not show a loan screen.
 
-Skills used: `setup-matt-pocock-skills`, `grilling`, `domain-modeling`, `codebase-design`, `to-spec`, `to-tickets`, `tdd`, `implement`. `research` and `prototype` were not needed for this cut. `code-review` needs a git history to diff against, and this folder is not a repository yet.
+Skills used: `setup-matt-pocock-skills`, `grilling`, `domain-modeling`, `codebase-design`, `to-spec`, `to-tickets`, `tdd`, `implement`. `research` and `prototype` were not needed for this cut.
+
+A later cut drew the screens with Tailwind and shadcn and checked the buyer paths in Playwright. Skills for that cut: `to-spec`, `to-tickets`, `tdd`, `implement`, `code-review`. The screen fills the pane beside the sidebar, and the text inside a card sits inset from the hairline. See ADR-0003 and `.scratch/screen-language/spec.md`.
 
 What was left out, and why:
 
@@ -20,6 +22,7 @@ Where the writing lives:
 
 - Repo map: `README.md`
 - Spec / PRD: `.scratch/buyer-servicing/spec.md`
+- Screen language: `.scratch/screen-language/spec.md`
 - Language: `GLOSSARY.md`
 - Decisions: `docs/adr/`
 

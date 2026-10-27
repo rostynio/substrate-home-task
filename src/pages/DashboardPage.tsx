@@ -65,13 +65,15 @@ export const DashboardPage = () => {
                 {book.upcoming.map(({ loan, debit }) => (
                   <Link
                     key={loan.id}
-                    className="grid grid-cols-[132px_minmax(0,1fr)_auto_auto] items-center gap-3 border-t border-border py-3 text-foreground no-underline first:border-t-0 max-md:grid-cols-[1fr_auto]"
+                    className="grid grid-cols-[132px_minmax(0,1fr)_auto] items-center gap-3 border-t border-border py-3 text-foreground no-underline first:border-t-0 max-md:grid-cols-[1fr_auto]"
                     to={`/loans/${loan.id}`}
                   >
                     <span className="max-md:col-span-full">{formatDate(debit.date)}</span>
                     <span>{loan.equipment}</span>
-                    <span>{formatMoney(debit.amountCents)}</span>
-                    <StandingPill returned={debit.stillDue} />
+                    <span className="flex items-center justify-end gap-3">
+                      {formatMoney(debit.amountCents)}
+                      {debit.stillDue && <StandingPill returned />}
+                    </span>
                   </Link>
                 ))}
               </div>

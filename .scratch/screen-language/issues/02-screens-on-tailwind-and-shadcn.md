@@ -13,3 +13,5 @@
 - [x] The buyer paths from ticket 01 still pass
 
 ## Comments
+
+The screen fills the pane beside the sidebar. Text inside a stat card sits inset from the hairline. The wordmark stays centered in the header.

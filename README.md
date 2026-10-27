@@ -21,15 +21,17 @@ npm run test:e2e
 npm run build
 ```
 
-`npm test` runs the loan math. `npm run test:e2e` runs the buyer paths in a browser. `npm run build` typechecks, then builds.
+`npm test` runs the loan math. `npm run test:e2e` runs the buyer paths in a browser. The first time, install the browser with `npx playwright install chromium`. `npm run build` typechecks, then builds.
 
 The demo is one buyer, Dane Excavation LLC, with three funded loans. The portal date is fixed at 2026-10-27. The sidebar is Dashboard, Active loans, and My applications. **View loan** on a funded row opens that loan.
 
 ## Stack
 
-Vite, React 19, TypeScript, React Router 7, Tailwind, and shadcn. There is no backend. Applications and this buyer's loans are fixtures. Money is integer cents. Dates are `YYYY-MM-DD`.
+Vite 8, React 19, TypeScript, and React Router 7. There is no backend. Applications and this buyer's loans are fixtures. Money is integer cents. Dates are `YYYY-MM-DD`.
 
-`npm test` runs the loan math in Vitest. `npm run test:e2e` runs the buyer paths in Playwright. The loan math is `src/domain/projectLoan.ts`: a loan, the portal date, and an optional payoff date become the balance, the schedule, the history, and the payoff quote. See [ADR-0003](docs/adr/0003-screens-use-tailwind-and-shadcn.md).
+Screens are drawn with Tailwind CSS 4 and shadcn: button, card, badge, input, and label, on Radix. Sidebar and support icons are Lucide. The Substrate mark stays the four-square wordmark. Mellon colors stay: white page, hairline cards, quiet status pills, support rail, dark footer. The screen fills the pane beside the sidebar. Card text sits inset from the hairline. The wordmark stays centered in the header. See [ADR-0003](docs/adr/0003-screens-use-tailwind-and-shadcn.md).
+
+Vitest tests the loan math in `src/domain/projectLoan.ts`. A loan, the portal date, and an optional payoff date become the balance, the schedule, the history, and the payoff quote. Playwright tests the buyer paths: the sidebar destinations, opening a loan, and the payoff note. It does not recompute cent amounts.
 
 ## Decisions
 
@@ -46,6 +48,7 @@ Words used in the product are defined in [GLOSSARY.md](GLOSSARY.md).
 | What | Where |
 | --- | --- |
 | PRD | [.scratch/buyer-servicing/spec.md](.scratch/buyer-servicing/spec.md) |
+| Screen language | [.scratch/screen-language/spec.md](.scratch/screen-language/spec.md) |
 | How this was made | [docs/work-log.md](docs/work-log.md) |
 | Language | [GLOSSARY.md](GLOSSARY.md) |
 | Decisions | [docs/adr/](docs/adr/) |
@@ -53,5 +56,6 @@ Words used in the product are defined in [GLOSSARY.md](GLOSSARY.md).
 | Loan math | [src/domain/projectLoan.ts](src/domain/projectLoan.ts) |
 | Book totals and formatting | [src/utils](src/utils) |
 | Loan math tests | [src/domain/projectLoan.test.ts](src/domain/projectLoan.test.ts) |
+| Buyer paths | [e2e/buyer-paths.spec.ts](e2e/buyer-paths.spec.ts) |
 
 The PRD is the document to paste into Notion. This README is the map of the repo.

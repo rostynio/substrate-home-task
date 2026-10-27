@@ -26,9 +26,11 @@ export const LoansPage = () => {
                   <CardTitle asChild className="text-[15px] font-semibold">
                     <h2>{loan.equipment}</h2>
                   </CardTitle>
-                  <CardAction>
-                    <StandingPill returned={returned} />
-                  </CardAction>
+                  {returned && (
+                    <CardAction>
+                      <StandingPill returned />
+                    </CardAction>
+                  )}
                 </CardHeader>
                 <CardContent className="text-[13px] text-muted-foreground">
                   {loan.buyer} · {loan.dealer} · Balance {formatMoney(snapshot.outstandingPrincipalCents)}

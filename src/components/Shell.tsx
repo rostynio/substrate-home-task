@@ -72,7 +72,7 @@ export const Shell = ({ topic, children }: { topic: SupportTopic; children: Reac
             <Mark />
             <span>Substrate</span>
           </header>
-          <main className="mx-auto min-h-0 w-full max-w-[760px] flex-1 overflow-auto px-7 pt-7 pb-12 max-md:px-4 max-md:pt-5">
+          <main className="min-h-0 w-full flex-1 overflow-auto px-7 pt-7 pb-12 max-md:px-4 max-md:pt-5">
             {children}
           </main>
         </div>

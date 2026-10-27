@@ -44,14 +44,22 @@ const Ring = ({
           r={radius}
           strokeDasharray={`${drawn} ${circumference - drawn}`}
         />
-        <text className="fill-foreground text-[22px] font-semibold" x="70" y="76" textAnchor="middle">
+        <text
+          x="70"
+          y="70"
+          textAnchor="middle"
+          dominantBaseline="central"
+          fill="#1c1c1c"
+          fontSize="16"
+          fontWeight="600"
+        >
           {center}
         </text>
       </svg>
       <figcaption className="grid gap-0.5">
         <strong className="text-sm">{title}</strong>
-        <span className="text-[13px]">{paidLine}</span>
-        <span className="text-[13px] text-muted-foreground">{leftLine}</span>
+        <span className="text-[13px] tabular-nums">{paidLine}</span>
+        <span className="text-[13px] text-muted-foreground tabular-nums">{leftLine}</span>
       </figcaption>
     </figure>
   )
@@ -83,12 +91,12 @@ export const LoanProgress = ({
   const caption = detail ?? `${formatRate(rateBps ?? 0)} · ${termMonths ?? 0} months`
 
   return (
-    <Card asChild className="mt-[18px]">
+    <Card asChild className="mt-[18px] px-4">
       <section aria-label="Loan progress">
         <div className="grid grid-cols-2 gap-x-3 gap-y-1">
           <div className="col-span-full mb-1 grid gap-0.5">
             <span className="text-[13px] text-muted-foreground">Loan amount</span>
-            <strong className="text-[28px] font-semibold tracking-tight">{formatMoney(originalCents)}</strong>
+            <strong className="text-[28px] leading-none font-semibold tracking-tight tabular-nums">{formatMoney(originalCents)}</strong>
             <span className="text-muted-foreground">{caption}</span>
           </div>
           <Ring

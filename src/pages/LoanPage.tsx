@@ -40,7 +40,7 @@ export const LoanPage = () => {
       <BackLink to="/loans">Active loans</BackLink>
       <div className="flex items-center justify-between gap-4">
         <h1 className="text-[22px] font-semibold tracking-tight">{loan.equipment}</h1>
-        <StandingPill returned={returned} />
+        {returned && <StandingPill returned />}
       </div>
       <p className="mt-1.5 text-[13px] text-muted-foreground">
         {loan.buyer} · {loan.dealer}

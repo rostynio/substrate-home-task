@@ -30,6 +30,7 @@ The screens keep the Mellon frame and the same words, and they are built with Ta
 
 - Tailwind is the styling language. shadcn supplies the button, card, badge, input, and label. Layout that is only Mellon (the wordmark, the support rail, the progress rings, the dark footer) stays local and uses the same tokens.
 - The visual frame does not become the default shadcn theme. Ink, hairline, muted text, and the paid, expected, and returned colors stay the Mellon ones.
+- The screen fills the pane beside the sidebar. It is not a centered column. Text inside a card sits inset from the hairline. The Substrate wordmark stays centered in the header.
 - Icons in the sidebar and the support rail come from the same icon set shadcn uses. The Substrate mark stays the four-square wordmark.
 - The hand-written stylesheet goes away in the same change as the screens. Tailwind's reset and that sheet cannot both own headings and buttons, so they are not left side by side.
 - Loan math, fixtures, and the portal date stay as they are. A returned debit is still not in the Dane fixtures. The red month stays covered by the loan tests.
