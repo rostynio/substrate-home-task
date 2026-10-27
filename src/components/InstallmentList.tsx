@@ -2,18 +2,18 @@ import { cn } from 'cn'
 import { Badge } from '@/components/ui/badge'
 import { formatDate, formatMoney } from '../utils/format'
 
-export type InstallmentTone = 'posted' | 'expected' | 'failed'
+export type InstallmentTone = 'posted' | 'expected' | 'returned'
 
 const toneVariant = {
   posted: 'paid',
   expected: 'expected',
-  failed: 'failed',
+  returned: 'returnedDebit',
 } as const
 
 const toneEdge = {
-  posted: 'shadow-[inset_3px_0_0_#157a3e]',
+  posted: 'shadow-[inset_3px_0_0_#1c7a42]',
   expected: 'shadow-[inset_3px_0_0_#d4a017]',
-  failed: 'shadow-[inset_3px_0_0_#c44545]',
+  returned: 'shadow-[inset_3px_0_0_#c44545]',
 } as const
 
 export const InstallmentList = ({

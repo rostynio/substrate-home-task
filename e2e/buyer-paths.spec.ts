@@ -10,6 +10,8 @@ test('buyer moves between Dashboard, Active loans, and My applications', async (
   await page.getByRole('navigation', { name: 'Account' }).getByRole('link', { name: 'Active loans' }).click()
   await expect(page.getByRole('heading', { name: 'Active loans' })).toBeVisible()
   await expect(page.getByRole('heading', { name: '2022 Bobcat T76' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: '2021 CAT 259D' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: '2024 Takeuchi TB240' })).toBeVisible()
 
   await page.getByRole('navigation', { name: 'Account' }).getByRole('link', { name: 'My applications' }).click()
   await expect(page.getByRole('heading', { name: 'Your applications' })).toBeVisible()
@@ -39,5 +41,6 @@ test('payoff on the last posted debit adds no interest', async ({ page }) => {
 
   await quote.getByLabel('As of').fill('2026-10-15')
   await expect(quote.getByText(/No additional interest/)).toBeVisible()
-  await expect(page.getByRole('button', { name: /^(pay|make a payment)$/i })).toHaveCount(0)
+  await expect(page.getByRole('button', { name: /pay|payment/i })).toHaveCount(0)
+  await expect(page.getByRole('link', { name: /pay|payment/i })).toHaveCount(0)
 })

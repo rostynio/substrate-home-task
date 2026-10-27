@@ -22,8 +22,8 @@ const badgeVariants = cva(
         paid: "h-auto border-transparent bg-paid-soft text-[11px] font-semibold tracking-wide text-paid uppercase",
         expected:
           "h-auto border-transparent bg-expected-soft text-[11px] font-semibold tracking-wide text-expected uppercase",
-        failed:
-          "h-auto border-transparent bg-failed-soft text-[11px] font-semibold tracking-wide text-failed uppercase",
+        returnedDebit:
+          "h-auto border-transparent bg-returned-debit-soft text-[11px] font-semibold tracking-wide text-returned-debit uppercase",
         action:
           "h-auto border-transparent bg-transparent text-[11px] font-semibold tracking-wide text-notice uppercase",
         blocked:

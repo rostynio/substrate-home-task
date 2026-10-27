@@ -42,12 +42,12 @@
 @theme inline {
   --font-heading: var(--font-sans);
   --font-sans: Inter, "Avenir Next", "Segoe UI", sans-serif;
-  --color-paid: #157a3e;
-  --color-paid-soft: #e5f6eb;
+  --color-paid: #1c7a42;
+  --color-paid-soft: #e7f6ec;
   --color-expected: #8a6410;
   --color-expected-soft: #fbf4d6;
-  --color-failed: #b42318;
-  --color-failed-soft: #fde8e8;
+  --color-returned-debit: #b42318;
+  --color-returned-debit-soft: #fde8e8;
   --color-returned: #8a4b24;
   --color-returned-soft: #f8efe8;
   --color-notice: #c47b2b;

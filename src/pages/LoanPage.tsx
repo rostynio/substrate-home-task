@@ -79,7 +79,7 @@ export const LoanPage = () => {
             key: debit.date,
             date: debit.date,
             amountCents: debit.amountCents,
-            tone: debit.stillDue ? 'failed' : 'expected',
+            tone: debit.stillDue ? 'returned' : 'expected',
             label: debit.stillDue ? 'Failed' : 'Expected',
           }))}
         />
@@ -107,7 +107,7 @@ export const LoanPage = () => {
             key: `${entry.date}-${entry.result}`,
             date: entry.date,
             amountCents: entry.amountCents,
-            tone: entry.result === 'returned' ? 'failed' : 'posted',
+            tone: entry.result === 'returned' ? 'returned' : 'posted',
             label: entry.result === 'returned' ? 'Failed' : 'Paid',
           }))}
         />
